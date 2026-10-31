@@ -1,5 +1,5 @@
 import Icon from '../../components/Icon.jsx';
-import { Button, Reveal } from '../../components/ui';
+import { Button, Reveal } from '../../components/ui/index.js';
 import siteConfig, { whatsappLink } from '../../config/siteConfig.js';
 import './EmiBanner.css';
 
