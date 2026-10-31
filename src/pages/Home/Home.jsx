@@ -4,7 +4,7 @@ import { Reveal } from '../../components/ui';
 import { BRANDS, phones } from '../../data/phones.js';
 import HeroCarousel from './HeroCarousel.jsx';
 import PhoneRail from './PhoneRail.jsx';
-import EmiBanner from './EmiBanner.jsx';
+import EmiBanner from "./Emibanner.jsx";
 import MoreInShop from './MoreInShop.jsx';
 import VisitShop from './VisitShop.jsx';
 import './Home.css';
