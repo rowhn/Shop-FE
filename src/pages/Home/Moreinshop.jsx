@@ -2,7 +2,7 @@ import Icon from '../../components/Icon.jsx';
 import { Button, Reveal, SectionHeading } from '../../components/ui';
 import { whatsappLink } from '../../config/siteConfig.js';
 import { useConfig } from '../../context/Config.jsx';
-import './MoreInShop.css';
+import "./Moreinshop.css";
 
 // ✏️ "More in the shop" tiles. Add / remove rows: [icon, title, description]
 const ITEMS = [
