@@ -1,0 +1,11 @@
+/* EmiBanner.css */
+.pm-emibanner { margin-top: 4rem; }
+@media (min-width: 992px) { .pm-emibanner { margin-top: 5rem; } }
+.pm-emibanner__card { background: linear-gradient(135deg, #0b57d0, #0071e3 55%, #3b9bff); color: #fff; border-radius: 2rem; padding: 2rem 1.5rem; }
+@media (min-width: 768px) { .pm-emibanner__card { padding: 3rem; } }
+.pm-emibanner__eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; margin: 0 0 0.5rem; font-size: 0.85rem; font-weight: 600; background: rgba(255, 255, 255, 0.18); padding: 0.25rem 0.75rem; border-radius: 50rem; }
+.pm-emibanner__title { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+.pm-emibanner__text { margin: 0.9rem 0 0; max-width: 32rem; color: rgba(255, 255, 255, 0.85); }
+.pm-emibanner__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.pm-emibanner__steps li { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1rem; border-radius: 1rem; background: rgba(255, 255, 255, 0.14); }
+.pm-emibanner__steps span { flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; color: #0b57d0; font-weight: 700; display: flex; align-items: center; justify-content: center; }

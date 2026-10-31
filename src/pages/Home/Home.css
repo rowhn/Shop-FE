@@ -1,0 +1,7 @@
+/* Home.css: brand chips + services block */
+.pm-home__brands { margin-top: 2.5rem; }
+.pm-home__brand { display: flex; align-items: center; justify-content: center; height: 4rem; border-radius: 1.1rem; background: var(--pm-soft); color: var(--pm-ink); font-weight: 600; letter-spacing: -0.01em; transition: background 0.2s, transform 0.2s; }
+.pm-home__brand:hover { background: #ececf1; color: var(--pm-ink); transform: translateY(-2px); }
+.pm-home__services { margin-top: 4rem; }
+@media (min-width: 992px) { .pm-home__services { margin-top: 5rem; } }
+.pm-home__service { height: 100%; padding: 1.25rem; border: 1px solid #ececf0; border-radius: 1.25rem; }

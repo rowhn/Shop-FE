@@ -1,0 +1,121 @@
+/* =========================================
+   Navbar.css: Apple "Liquid Glass" floating navbar
+   Layout: [☰] Brand ........ links ........ [Categories ▾]
+   Glass recipe: translucent tint + heavy blur/saturation + bright inner
+   edge highlights (top/left) + soft inner shadow (bottom/right) + gloss sheen.
+   Tweak the 4 variables below to change the whole look.
+========================================= */
+.pm-nav {
+  --glass-tint: rgba(255, 255, 255, 0.38);      /* lower = clearer glass */
+  --glass-blur: 22px;
+  --glass-edge: rgba(255, 255, 255, 0.85);      /* bright rim light */
+  --glass-shadow: rgba(31, 38, 135, 0.18);
+
+  position: sticky; top: 10px; z-index: 1030;
+  width: min(94%, 1200px); margin: 10px auto 0;
+  color: #1d1d1f;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, var(--glass-tint) 45%, rgba(255, 255, 255, 0.28) 100%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(190%) brightness(1.06);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(190%) brightness(1.06);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 10px 32px var(--glass-shadow),             /* floating shadow */
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    inset 0 1.5px 0 var(--glass-edge),           /* top rim light */
+    inset 1.5px 0 0 rgba(255, 255, 255, 0.45),   /* left rim light */
+    inset 0 -1.5px 0 rgba(255, 255, 255, 0.18),  /* bottom edge */
+    inset 0 0 22px rgba(255, 255, 255, 0.25);    /* inner glow */
+  isolation: isolate;
+  transition: background 0.35s, box-shadow 0.35s, transform 0.35s;
+}
+/* Curved gloss sheen across the top half */
+.pm-nav::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.08) 45%, transparent 60%);
+  opacity: 0.7;
+}
+/* Specular streak that catches the light */
+.pm-nav::after {
+  content: ''; position: absolute; top: 0; left: 8%; right: 8%; height: 1px; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+}
+.pm-nav.is-scrolled {
+  --glass-tint: rgba(255, 255, 255, 0.5);
+  --glass-shadow: rgba(31, 38, 135, 0.26);
+}
+
+.pm-nav__bar { display: flex; align-items: center; gap: 0.75rem; min-height: 3.6rem; padding: 0 0.9rem; }
+@media (min-width: 992px) { .pm-nav__bar { min-height: 4rem; padding: 0 0.75rem 0 1.6rem; } }
+
+.pm-nav__brand { flex-shrink: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.03em; color: #1d1d1f; white-space: nowrap; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
+.pm-nav__brand:hover { color: #1d1d1f; }
+@media (min-width: 576px) { .pm-nav__brand { font-size: 1.3rem; } }
+.pm-nav__burger { color: #1d1d1f; border-radius: 50%; }
+.pm-nav__burger:hover { background: rgba(255, 255, 255, 0.55); }
+
+/* Links: centred; the active one is its own little glass capsule */
+.pm-nav__links { flex: 1; justify-content: center; align-items: center; gap: 0.2rem; }
+.pm-nav__link {
+  position: relative; padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid transparent;
+  color: #3a3a3f; font-size: 0.9rem; font-weight: 500; white-space: nowrap;
+  transition: color 0.25s, background 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.pm-nav__link:hover { color: #0071e3; background: rgba(255, 255, 255, 0.45); }
+.pm-nav__link.is-active {
+  color: #0a58c9; font-weight: 600;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.45));
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 14px rgba(0, 80, 200, 0.14), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* "Categories" button: dark liquid-glass pill */
+.pm-nav__brandsbtn {
+  display: inline-flex; align-items: center; gap: 0.45rem; height: 2.55rem; padding: 0 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px;
+  background: linear-gradient(180deg, rgba(60, 60, 67, 0.92), rgba(20, 20, 24, 0.92));
+  color: #fff; font-size: 0.88rem; font-weight: 500;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+.pm-nav__brandsbtn:hover, .pm-nav__brandsbtn.show {
+  background: linear-gradient(180deg, #3d9bff, #0071e3); color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.pm-nav__brandsbtn:active { transform: scale(0.97); }
+.pm-nav__brandsbtn::after { display: none; }
+
+/* Dropdown panel: glass too */
+.pm-nav__menu {
+  min-width: 14rem; margin-top: 0.8rem !important; padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(26px) saturate(190%); -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(31, 38, 135, 0.22), inset 0 1.5px 0 rgba(255, 255, 255, 0.9);
+}
+.pm-nav__menu .dropdown-item { border-radius: 14px; padding: 0.55rem 0.85rem; font-size: 0.92rem; }
+.pm-nav__menu .dropdown-item:hover, .pm-nav__menu .dropdown-item:focus { background: rgba(255, 255, 255, 0.85); color: #0071e3; }
+.pm-nav__menu .dropdown-header { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: #86868b; }
+
+/* Mobile drawer: frosted glass sheet */
+.pm-nav__drawer {
+  width: min(84%, 22rem) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(30px) saturate(190%); -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border-right: 1px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: 0 26px 26px 0;
+  box-shadow: 18px 0 50px rgba(31, 38, 135, 0.2), inset -1.5px 0 0 rgba(255, 255, 255, 0.8);
+}
+.pm-nav__label { margin: 0 0 0.6rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #6e6e73; }
+.pm-nav__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+.pm-nav__chip { padding: 0.42rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), inset 0 1px 0 #fff; color: #1d1d1f; font-size: 0.9rem; font-weight: 500; }
+.pm-nav__chip:hover { background: #fff; color: #0071e3; }
+.pm-nav__mobile { display: flex; flex-direction: column; }
+.pm-nav__mlink { padding: 0.95rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.07); color: #1d1d1f; font-size: 1.05rem; font-weight: 500; }
+.pm-nav__mlink:hover, .pm-nav__mlink.is-active { color: #0071e3; }
+
+/* Browsers without backdrop-filter: fall back to a solid, readable bar */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pm-nav, .pm-nav__menu, .pm-nav__drawer { background: rgba(250, 250, 252, 0.97) !important; }
+}
+@media (prefers-reduced-motion: reduce) { .pm-nav, .pm-nav__link, .pm-nav__brandsbtn { transition: none; } }

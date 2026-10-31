@@ -1,0 +1,7 @@
+/* MoreInShop.css */
+.pm-more { margin-top: 4rem; }
+@media (min-width: 992px) { .pm-more { margin-top: 5rem; } }
+.pm-more__card { height: 100%; padding: 1.25rem; border: 1px solid #ececf0; border-radius: 1.25rem; background: #fff; }
+.pm-more__icon { display: inline-flex; width: 3rem; height: 3rem; align-items: center; justify-content: center; border-radius: 0.9rem; background: var(--pm-soft); }
+.pm-more__cta { margin-top: 1.25rem; padding: 1.1rem 1.25rem; border-radius: 1.25rem; background: var(--pm-soft); display: flex; flex-direction: column; gap: 0.75rem; }
+@media (min-width: 768px) { .pm-more__cta { flex-direction: row; align-items: center; justify-content: space-between; } }

@@ -1,0 +1,21 @@
+/* PhoneCard.css: phone tile used on Home and Phones pages */
+.pm-phoneimg { width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.pm-phoneimg--ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: rgba(0, 0, 0, 0.35); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; }
+.pm-phonecard { display: flex; flex-direction: column; height: 100%; background: #fff; border: 1px solid #ececf0; border-radius: 1.25rem; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s; }
+.pm-phonecard:hover { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09); border-color: transparent; transform: translateY(-3px); }
+.pm-phonecard__media { position: relative; display: block; aspect-ratio: 1 / 1; background: linear-gradient(180deg, #fafafc, #f3f3f6); padding: 8%; }
+.pm-phonecard__media .pm-phoneimg--ph { border-radius: 1rem; }
+.pm-phonecard__tag { position: absolute; top: 0.7rem; left: 0.7rem; }
+.pm-phonecard__body { display: flex; flex-direction: column; flex: 1; padding: 0.9rem 1rem 1rem; }
+.pm-phonecard__brand { margin: 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--pm-muted); }
+.pm-phonecard__name { margin: 0.15rem 0 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+.pm-phonecard__name a { color: var(--pm-ink); }
+.pm-phonecard__sum { margin: 0.4rem 0 0.9rem; font-size: 0.85rem; color: var(--pm-muted); flex: 1; }
+.pm-phonecard__actions { display: flex; gap: 0.5rem; }
+@media (max-width: 575.98px) { .pm-phonecard__body { padding: 0.75rem; } .pm-phonecard__sum { display: none; } .pm-phonecard__actions { flex-wrap: wrap; } }
+
+/* Second photo fades in on hover (desktop) */
+.pm-phonecard__media { position: relative; }
+.pm-phonecard__img { transition: opacity 0.35s; }
+.pm-phonecard__img--alt { position: absolute; inset: 8%; width: calc(100% - 16%); height: calc(100% - 16%); opacity: 0; }
+@media (hover: hover) { .pm-phonecard:hover .pm-phonecard__img--alt { opacity: 1; } .pm-phonecard:hover .pm-phonecard__img:not(.pm-phonecard__img--alt) { opacity: 0; } }

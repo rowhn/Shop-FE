@@ -1,0 +1,4 @@
+/* ItemCard.css: accessories / TV tile (extends PhoneCard.css) */
+.pm-itemcard__ph { background: linear-gradient(145deg, #f2f4f8, #d9dee8); }
+.pm-itemcard__ph.is-tv { background: linear-gradient(145deg, #eef0f6, #b9c2d6); }
+.pm-itemcard .pm-phonecard__sum { min-height: 2.6em; }

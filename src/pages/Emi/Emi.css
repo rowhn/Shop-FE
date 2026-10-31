@@ -1,0 +1,9 @@
+/* Emi.css */
+.pm-emi__calc, .pm-emi__box { padding: 1.5rem; border: 1px solid #ececf0; border-radius: 1.5rem; background: #fff; }
+.pm-emi__box { padding: 1.25rem; }
+.pm-emi__result { display: grid; gap: 0.5rem; margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: 1rem; background: var(--pm-soft); }
+.pm-emi__result div { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+.pm-emi__result span { color: var(--pm-muted); font-size: 0.9rem; }
+.pm-emi__result strong { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.pm-emi__result div:first-child strong { font-size: 1.5rem; color: var(--pm-accent); }
+.pm-emi__list { margin: 0.5rem 0 0.75rem; padding-left: 1.2rem; display: grid; gap: 0.4rem; color: #3a3a3c; }
